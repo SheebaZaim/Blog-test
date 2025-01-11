@@ -1,6 +1,7 @@
 import "../globals.css";
 import Link from "next/link";
 
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import {
@@ -18,6 +19,7 @@ import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import CommentSection from "./commentSection/page";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await sanityFetch({
@@ -99,6 +101,7 @@ export default async function RootLayout({
         </section>
         {isDraftMode && <VisualEditing />}
         <SpeedInsights />
+        <CommentSection/>
       </body>
     </html>
   );

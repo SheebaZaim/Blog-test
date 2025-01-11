@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import About from "./about/page";
 
 import Avatar from "./avatar";
 import CoverImage from "./cover-image";
@@ -12,6 +13,7 @@ import type { HeroQueryResult } from "@/sanity.types";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { heroQuery, settingsQuery } from "@/sanity/lib/queries";
+import Contact from "./contact/page";
 
 function Intro(props: { title: string | null | undefined; description: any }) {
   const title = props.title || demo.title;
@@ -29,6 +31,7 @@ function Intro(props: { title: string | null | undefined; description: any }) {
           value={description?.length ? description : demo.description}
         />
       </h2>
+      
     </section>
   );
 }
@@ -106,6 +109,9 @@ export default async function Page() {
           </Suspense>
         </aside>
       )}
+       <About/>
+      <Contact/>
+      
     </div>
   );
 }
